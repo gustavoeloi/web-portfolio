@@ -1,21 +1,19 @@
-import { Menu } from "lucide-react";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { id: 1, label: "Home", to: "/" },
-  { id: 2, label: "Projects", to: "/projects" },
-  { id: 3, label: "About", to: "/about" },
-  { id: 4, label: "Contact", to: "/contact" },
+  { id: 2, label: "Projects", to: "#projects" },
+  { id: 3, label: "About", to: "#about" },
+  { id: 4, label: "Contact", to: "#contact" },
 ];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full  text-white bg-black fixed">
-      <div className="flex justify-between items-center h-32 px-4 py-12">
+    <header className="fixed top-0 flex  items-start mx-auto w-full xl:items-center backdrop-blur-sm border-b border-teal-300 bg-gradient-to-r bg-black from-transparent via-blue-300/20 to-transparent z-50">
+      <div className="flex justify-between items-center h-32 px-4 py-12 w-full">
         <div>
           <h1 className="ml-2 font-extrabold text-transparent text-2xl md:text-5xl bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600 p-2 font-signature">
             Gustavo Eloi
@@ -24,11 +22,11 @@ const Navbar = () => {
 
         <ul className="hidden md:flex">
           {navLinks.map((item) => (
-            <Link key={item.id} to={item.to}>
-              <li className="px-4 cursor-pointer text-2xl capitalize font-bold text-gray-400 hover:scale-105 duration-200">
+            <a key={item.id} href="#about">
+              <li className="px-4 cursor-pointer text-2xl capitalize font-medim text-gray-400 hover:scale-105 duration-200">
                 {item.label}
               </li>
-            </Link>
+            </a>
           ))}
         </ul>
 

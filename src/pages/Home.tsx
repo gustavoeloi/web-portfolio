@@ -1,8 +1,19 @@
 import myPicture from "@/assets/images/myPicture.jpg";
 import handEmoji from "@/assets/images/EmojiHand.png";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronsDown } from "lucide-react";
+import TimeLine from "@/components/TimeLine";
+import { motion } from "framer-motion";
+import About from "./About";
 
 const Home = () => {
+  const arrowVariants = {
+    initial: { y: 0 },
+    animate: {
+      y: [0, -10, 0],
+      transition: { y: { repeat: Infinity, duration: 1.5 } },
+    },
+  };
+
   return (
     <div className="h-screen w-full bg-gradient-to-b from-black via-black to-gray-800 text-base">
       <main className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full gap-12 px-4 md:flex-row">
@@ -38,7 +49,24 @@ const Home = () => {
             className="rounded-2xl mx-auto w-2/3 md:w-96"
           />
         </div>
+        <motion.div
+          style={{
+            position: "absolute",
+            bottom: "1rem",
+            left: "50%",
+            translateX: "-50%",
+          }}
+          variants={arrowVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <ChevronsDown size={64} color="#ffffff" />
+        </motion.div>
       </main>
+
+      <TimeLine />
+
+      <About />
     </div>
   );
 };
