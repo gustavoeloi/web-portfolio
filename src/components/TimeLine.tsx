@@ -14,7 +14,10 @@ const TimeLine = () => {
   const schoolIconStyles = { background: "#f9c74f", color: "#ffff" };
 
   return (
-    <div className="bg-gradient-to-t from-black via-black to-gray-800 py-16">
+    <div
+      id="timeline"
+      className="bg-gradient-to-t from-black via-black to-gray-800 py-16"
+    >
       <h1 className="text-center text-4xl font-light  text-white font-base mb-16 uppercase tracking-widest">
         TimeLine
       </h1>

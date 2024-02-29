@@ -5,6 +5,8 @@ import TimeLine from "@/components/TimeLine";
 import { motion } from "framer-motion";
 import About from "./About";
 
+import { Link } from "react-scroll";
+
 const Home = () => {
   const arrowVariants = {
     initial: { y: 0 },
@@ -16,7 +18,10 @@ const Home = () => {
 
   return (
     <div className="h-screen w-full bg-gradient-to-b from-black via-black to-gray-800 text-base">
-      <main className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full gap-12 px-4 md:flex-row">
+      <main
+        id="main"
+        className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full gap-12 px-4 md:flex-row"
+      >
         <div className="flex flex-col justify-center h-full">
           <p className="flex text-white font-bold items-center text-xl sm:text-3xl gap-2 ">
             Hi! <img src={handEmoji} alt="handEmoji" className="max-h-10 " />
@@ -55,12 +60,15 @@ const Home = () => {
             bottom: "1rem",
             left: "50%",
             translateX: "-50%",
+            cursor: "pointer",
           }}
           variants={arrowVariants}
           initial="initial"
           animate="animate"
         >
-          <ChevronsDown size={64} color="#ffffff" />
+          <Link to="timeline" smooth={true} duration={500}>
+            <ChevronsDown size={64} color="#ffffff" />
+          </Link>
         </motion.div>
       </main>
 
