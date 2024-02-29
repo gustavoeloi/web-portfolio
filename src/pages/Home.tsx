@@ -4,6 +4,8 @@ import { ArrowRight, ChevronsDown } from "lucide-react";
 import TimeLine from "@/components/TimeLine";
 import { motion } from "framer-motion";
 import About from "./About";
+import "react-simple-typewriter/dist/index";
+import { Typewriter, Cursor } from "react-simple-typewriter/dist/index";
 
 import { Link } from "react-scroll";
 
@@ -26,11 +28,18 @@ const Home = () => {
           <p className="flex text-white font-bold items-center text-xl sm:text-3xl gap-2 ">
             Hi! <img src={handEmoji} alt="handEmoji" className="max-h-10 " />
           </p>
-          <h1 className="text-4xl sm:text-7xl font-bold text-bold text-white">
+          <h1 className="text-4xl sm:text-5xl font-bold text-bold text-white">
             I'm{" "}
             <span className="bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600 text-transparent">
-              Gustavo Eloi
+              <Typewriter
+                words={["Gustavo Eloi", "Web Developer"]}
+                loop={5}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                typeSpeed={60}
+              />
             </span>
+            <Cursor cursorStyle="_" />
           </h1>
           <h2 className="text-gray-500 py-4 max-w-md text-lg ">
             Web Developer. I love to work on web application using technologies

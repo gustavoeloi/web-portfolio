@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Link } from "react-scroll";
 
 const navLinks = [
-  { id: 2, label: "Projects", to: "projects" },
   { id: 3, label: "About", to: "about" },
+  { id: 2, label: "Projects", to: "projects" },
   { id: 4, label: "Contact", to: "contact" },
 ];
 
@@ -24,13 +24,7 @@ const Navbar = () => {
 
         <ul className="hidden md:flex">
           {navLinks.map((item) => (
-            <Link
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              key={item.id}
-              to={item.to}
-              smooth={true}
-              duration={500}
-            >
+            <Link key={item.id} to={item.to} smooth={true} duration={500}>
               <li className="px-4 cursor-pointer text-2xl capitalize font-medim text-gray-400 hover:scale-105 duration-200">
                 {item.label}
               </li>

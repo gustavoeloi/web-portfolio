@@ -1,4 +1,7 @@
 const About = () => {
+  const thisYear = new Date().getFullYear();
+  const myBirthday = thisYear - 2004;
+
   return (
     <div className="w-full h-screen bg-gradient-to-t from-gray-800 to-black text-white font-base">
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
@@ -11,21 +14,25 @@ const About = () => {
           </p>
         </div>
         <p className="text-xl mt-20">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur iure
-          iste cumque, expedita necessitatibus nihil sint cupiditate modi sunt
-          eum harum architecto dolores molestiae perspiciatis quisquam inventore
-          vel! Ad eum velit illo animi. Dolorum sed ea quos obcaecati, excepturi
-          harum reprehenderit placeat nihil, quidem ullam numquam autem
-          quisquam, distinctio voluptatibus?
+          Hello! I'm Gustavo Eloi, a {myBirthday}-year-old web development
+          enthusiast currently living in Brasília, the capital of Brazil. My
+          journey into programming began out of curiosity, and ever since,
+          crafting creative solutions for people's everyday needs has become my
+          passion. Over time, I've honed my skills in technologies such as
+          React, Angular, and delved into backend development with technologies
+          like Spring Boot and Node.js, working with various databases,
+          including MongoDB, Firebase, and PostgreSQL.
         </p>
         <br />
         <p className="text-xl">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit omnis
-          repellendus eum, aliquam, facere numquam saepe autem incidunt magni
-          accusantium ipsa. Sed asperiores illo adipisci quas quidem tempora in
-          possimus aut consectetur laborum, praesentium ab reprehenderit?
-          Assumenda, iure explicabo perferendis dolorum ullam at aliquid
-          voluptates eum ex doloremque veritatis rem?
+          I believe in the power of technology to solve problems and enhance our
+          lives. Whether it's designing intuitive interfaces or architecting
+          robust backend systems, I am committed to delivering high-quality
+          solutions that make a positive impact. When I'm not coding, I enjoy
+          exploring the latest trends in web development, contributing to
+          open-source projects, and savoring a good cup of coffee while
+          brainstorming new ideas. Let's connect and create something amazing
+          together!
         </p>
       </div>
     </div>
