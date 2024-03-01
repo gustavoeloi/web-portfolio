@@ -3,6 +3,8 @@ import demoProject from "@/assets/images/demo-project.jpg";
 import ocebHome from "@/assets/images/oceb-home.png";
 
 import { Badge } from "@/components/ui/badge";
+import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const portfolioProjects = [
@@ -96,11 +98,18 @@ const Projects = () => {
               key={project.id}
               className="shadow-md shadow-gray-600 rounded-lg h-full"
             >
-              <img
-                src={project.src}
-                alt={project.alt}
-                className="rounded-mg duration-200 hover:scale-105 h-44 w-full object-cover"
-              />
+              <div className="relative hover:scale-105">
+                <Link to={project.href} target="_blank">
+                  <img
+                    src={project.src}
+                    alt={project.alt}
+                    className="rounded-mg duration-200  hover:filter hover:brightness-75 h-44 w-full object-cover"
+                  />
+                  <div className="overlay-icon">
+                    <ExternalLink size={30} className="text-white" />
+                  </div>
+                </Link>
+              </div>
 
               <div className="w-full p-4 flex flex-wrap items-center gap-2">
                 {project.technologies?.map(({ id, name }) => (
@@ -109,6 +118,7 @@ const Projects = () => {
                   </Badge>
                 ))}
               </div>
+
               <div className="p-4 justiy">
                 <p className="text-justify text-sm text-gray-300">
                   {project.description}

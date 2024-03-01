@@ -1,10 +1,39 @@
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+
 const About = () => {
   const thisYear = new Date().getFullYear();
   const myBirthday = thisYear - 2004;
 
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        const offset = window.innerHeight * 0.7; // Adjust the offset as needed
+        const aboutSectionTop = aboutSection.getBoundingClientRect().top;
+
+        if (aboutSectionTop < offset) {
+          controls.start({ opacity: 1, y: 0 });
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls]);
+
   return (
     <div className="w-full h-screen bg-gradient-to-t from-gray-800 to-black text-white font-base py-32 md:py-0">
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
+      <motion.div
+        className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full"
+        initial={{ opacity: 0, y: 20 }}
+        animate={controls}
+        transition={{ duration: 0.6 }}
+      >
         <div className="pb-8">
           <p
             id="about"
@@ -34,7 +63,7 @@ const About = () => {
           brainstorming new ideas. Let's connect and create something amazing
           together!
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
