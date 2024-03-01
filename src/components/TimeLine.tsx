@@ -17,7 +17,7 @@ const TimeLine = () => {
     <div className="bg-gradient-to-t from-black via-black to-gray-800 py-16">
       <h1
         id="timeline"
-        className="text-center text-4xl font-light  text-white font-base mb-16 uppercase tracking-widest"
+        className="text-center text-4xl font-bold text-white font-base mb-16 uppercase tracking-widest"
       >
         TimeLine
       </h1>

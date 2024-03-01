@@ -8,6 +8,7 @@ import "react-simple-typewriter/dist/index";
 import { Typewriter, Cursor } from "react-simple-typewriter/dist/index";
 
 import { Link } from "react-scroll";
+import Projects from "./Projects";
 
 const Home = () => {
   const arrowVariants = {
@@ -70,6 +71,7 @@ const Home = () => {
             left: "50%",
             translateX: "-50%",
             cursor: "pointer",
+            zIndex: 0,
           }}
           variants={arrowVariants}
           initial="initial"
@@ -84,6 +86,7 @@ const Home = () => {
       <TimeLine />
 
       <About />
+      <Projects />
     </div>
   );
 };

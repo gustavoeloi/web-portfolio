@@ -3,12 +3,12 @@ const About = () => {
   const myBirthday = thisYear - 2004;
 
   return (
-    <div className="w-full h-screen bg-gradient-to-t from-gray-800 to-black text-white font-base">
+    <div className="w-full h-screen bg-gradient-to-t from-gray-800 to-black text-white font-base py-32 md:py-0">
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p
             id="about"
-            className="text-4xl font-bold inline border-b-4 border-gray-400"
+            className="text-4xl font-bold inline border-b-4 border-teal-600"
           >
             About
           </p>

@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 flex  items-start mx-auto w-full xl:items-center backdrop-blur-sm border-b border-teal-300 bg-gradient-to-r bg-black from-transparent via-blue-300/20 to-transparent z-50">
+    <header className="sticked top-0 flex  items-start mx-auto w-full xl:items-center backdrop-blur-sm border-b border-teal-300 bg-gradient-to-r bg-black from-transparent via-blue-300/20 to-transparent z-50">
       <div className="flex justify-between items-center h-32 px-4 py-12 w-full">
         <div className="cursor-pointer">
           <Link to="main" smooth={true} duration={500}>
@@ -40,7 +40,7 @@ const Navbar = () => {
         </div>
 
         {isMenuOpen && (
-          <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500">
+          <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500 z-100">
             {navLinks.map((item) => (
               <Link
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

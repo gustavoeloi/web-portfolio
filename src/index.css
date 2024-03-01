@@ -3,9 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  background-color: #161618;
-} */
+* {
+  box-sizing: border-box;
+}
 
 @layer base {
   :root {
