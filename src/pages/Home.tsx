@@ -7,8 +7,8 @@ import About from "./About";
 import "react-simple-typewriter/dist/index";
 import { Typewriter, Cursor } from "react-simple-typewriter/dist/index";
 
-import { Link } from "react-scroll";
 import Projects from "./Projects";
+import Experience from "./Experience";
 
 const Home = () => {
   const arrowVariants = {
@@ -66,20 +66,19 @@ const Home = () => {
         </div>
         <motion.div
           style={{
-            position: "absolute",
+            position: "fixed",
             bottom: "1rem",
             left: "50%",
             translateX: "-50%",
             cursor: "pointer",
             zIndex: 0,
+            opacity: 0.3,
           }}
           variants={arrowVariants}
           initial="initial"
           animate="animate"
         >
-          <Link to="timeline" smooth={true} duration={500}>
-            <ChevronsDown size={64} color="#ffffff" />
-          </Link>
+          <ChevronsDown size={44} color="#ffffff" />
         </motion.div>
       </main>
 
@@ -87,6 +86,7 @@ const Home = () => {
 
       <About />
       <Projects />
+      <Experience />
     </div>
   );
 };
