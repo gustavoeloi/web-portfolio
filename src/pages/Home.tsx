@@ -9,6 +9,7 @@ import { Typewriter, Cursor } from "react-simple-typewriter/dist/index";
 
 import Projects from "./Projects";
 import Experience from "./Experience";
+import { Link } from "react-scroll";
 
 const Home = () => {
   const arrowVariants = {
@@ -43,15 +44,22 @@ const Home = () => {
             <Cursor cursorStyle="_" />
           </h1>
           <h2 className="text-gray-500 py-4 max-w-md text-lg ">
-            Web Developer. I love to work on web application using technologies
-            like React, Angular, Tailwind. NextJS, Spring Boot, NodeJS, MongoDB,
-            Firebase and PostgreSQL
+            <span className="font-bold">Web Developer</span>. I love to work on
+            web application using technologies like React, Angular, Tailwind.
+            NextJS, Spring Boot, NodeJS, MongoDB, Firebase and PostgreSQL
           </h2>
 
           <div className="flex gap-4">
-            <button className="text-cyan-600 w-2/4 px-6 py-3 my-2 border-2 border-cyan-600 rounded-md">
-              Projects
-            </button>
+            <Link
+              to="projects"
+              smooth={true}
+              duration={500}
+              offset={-50}
+              className="text-cyan-600 w-2/4 px-6 py-3 my-2 border-2 border-cyan-600 rounded-md"
+            >
+              <button className="w-full">Projects</button>
+            </Link>
+
             <button className="group text-white w-2/4 px-6 py-3 my-2 flex items-center justify-center rounded-md bg-gradient-to-r from-cyan-600 to-teal-600">
               Contact <ArrowRight size={25} className="ml-1" />
             </button>

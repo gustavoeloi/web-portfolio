@@ -1,5 +1,5 @@
 import geprodHome from "@/assets/images/geprod-home.png";
-import demoProject from "@/assets/images/demo-project.jpg";
+import sbmProject from "@/assets/images/sbm-project.png";
 import ocebHome from "@/assets/images/oceb-home.png";
 
 import { Badge } from "@/components/ui/badge";
@@ -61,19 +61,27 @@ const Projects = () => {
       ],
     },
     {
-      id: 3,
-      src: demoProject,
-      alt: "DemoImage",
-      href: "https://github.com/gustavoeloi",
-      description: "Just a mock card to fill my 3 column grid.",
+      id: 2,
+      src: sbmProject,
+      alt: "Screenshot of SBM project",
+      href: "https://www.google.combr/",
+      description: "A web application developed to control a small business",
       technologies: [
         {
           id: 1,
-          name: "Angular",
+          name: "React",
         },
         {
           id: 2,
-          name: "Spring Boot",
+          name: "Tailwind",
+        },
+        {
+          id: 3,
+          name: "Firebase",
+        },
+        {
+          id: 4,
+          name: "Shadcn/ui",
         },
       ],
     },
@@ -82,11 +90,11 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="bg-gradient-to-t from-black to-gray-800 w-full text-white font-base md:h-screen py-32 md:py-0"
+      className="bg-gradient-to-t from-black to-gray-800 w-full text-white font-base md:h-screen py-32 md:py-0 font-base"
     >
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
         <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-teal-600">
+          <p className="text-4xl font-bold inline-block border-b-4 border-teal-600">
             Projects
           </p>
           <p className="py-7">Check out some of my work right here</p>

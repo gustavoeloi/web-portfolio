@@ -37,7 +37,7 @@ const About = () => {
         <div className="pb-8">
           <p
             id="about"
-            className="text-4xl font-bold inline border-b-4 border-teal-600"
+            className="text-4xl font-bold inline-block border-b-4 border-teal-600"
           >
             About
           </p>
