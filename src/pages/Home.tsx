@@ -1,6 +1,13 @@
 import myPicture from "@/assets/images/myPicture.jpg";
 import handEmoji from "@/assets/images/EmojiHand.png";
-import { ArrowRight, ChevronsDown } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronsDown,
+  Github,
+  Linkedin,
+  Mails,
+  Newspaper,
+} from "lucide-react";
 import TimeLine from "@/components/TimeLine";
 import { motion } from "framer-motion";
 import "react-simple-typewriter/dist/index";
@@ -10,7 +17,7 @@ import { Link } from "react-scroll";
 import Contact from "./Contact";
 import Projects from "./Projects";
 import About from "./About";
-import Experience from "./Experience";
+import Skills from "./Skills";
 
 const Home = () => {
   const arrowVariants = {
@@ -20,6 +27,43 @@ const Home = () => {
       transition: { y: { repeat: Infinity, duration: 1.5 } },
     },
   };
+
+  const links = [
+    {
+      id: 1,
+      child: {
+        platform: "LinkedIn",
+        icon: <Linkedin size={30} />,
+      },
+      href: "https://www.linkedin.com/in/gustavooeloi/",
+      style: "rounded-tr-md",
+    },
+    {
+      id: 2,
+      child: {
+        platform: "Github",
+        icon: <Github size={30} />,
+      },
+      href: "https://github.com/gustavoeloi",
+    },
+    {
+      id: 3,
+      child: {
+        platform: "E-mail",
+        icon: <Mails size={30} />,
+      },
+      href: "mailto:gustavooeloi@gmail.com",
+    },
+    {
+      id: 4,
+      child: {
+        platform: "Resume",
+        icon: <Newspaper size={30} />,
+      },
+      href: "https://www.google.com",
+      style: "rounded-b-md",
+    },
+  ];
 
   return (
     <div className="h-screen w-full bg-gradient-to-b from-black via-black to-gray-800 text-base">
@@ -49,6 +93,15 @@ const Home = () => {
             web application using technologies like React, Angular, Tailwind.
             NextJS, Spring Boot, NodeJS, MongoDB, Firebase and PostgreSQL
           </h2>
+          <ul className="md:hidden flex gap-8 py-4">
+            {links.map((link) => (
+              <li key={link.id} className="text-white">
+                <a href={link.href} target="_blank">
+                  {link.child.icon}
+                </a>
+              </li>
+            ))}
+          </ul>
 
           <div className="flex gap-4">
             <Link
@@ -95,7 +148,7 @@ const Home = () => {
 
       <About />
       <Projects />
-      <Experience />
+      <Skills />
       <Contact />
     </div>
   );

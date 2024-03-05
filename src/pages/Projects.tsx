@@ -127,7 +127,7 @@ const Projects = () => {
                 ))}
               </div>
 
-              <div className="p-4 justiy">
+              <div className="p-4 ">
                 <p className="text-justify text-sm text-gray-300">
                   {project.description}
                 </p>

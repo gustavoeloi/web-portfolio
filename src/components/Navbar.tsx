@@ -2,6 +2,8 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-scroll";
 
+import emojiComputer from "@/assets/images/EmojiComputer.png";
+
 const navLinks = [
   { id: 3, label: "About", to: "about" },
   { id: 2, label: "Projects", to: "projects" },
@@ -17,7 +19,7 @@ const Navbar = () => {
         <div className="cursor-pointer">
           <Link to="main" smooth={true} duration={500}>
             <h1 className="ml-2 font-extrabold text-transparent text-4xl md:text-5xl bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600 p-2 font-signature">
-              Gustavo Eloi
+              <img src={emojiComputer} alt="Emoji Computer" />
             </h1>
           </Link>
         </div>

@@ -73,13 +73,13 @@ const Experience = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-t from-gray-800 to-black w-full h-screen font-base">
+    <div className="bg-gradient-to-t from-gray-800 to-black w-full  font-base py-8">
       <div className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full text-white">
         <div>
           <h3 className="text-4xl font-bold border-b-4 border-y-teal-600 p-2 inline-block">
             Skills
           </h3>
-          <p>
+          <p className="py-7">
             These are the technologies I have worked with or have been studying
           </p>
 

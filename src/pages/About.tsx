@@ -42,7 +42,7 @@ const About = () => {
             About
           </p>
         </div>
-        <p className="text-xl mt-20">
+        <p className="text-xl mt-20 text-justify">
           Hello! I'm Gustavo Eloi, a {myBirthday}-year-old web development
           enthusiast currently living in Brasília, the capital of Brazil. My
           journey into programming began out of curiosity, and ever since,
@@ -53,7 +53,7 @@ const About = () => {
           including MongoDB, Firebase, and PostgreSQL.
         </p>
         <br />
-        <p className="text-xl">
+        <p className="text-xl text-justify">
           I believe in the power of technology to solve problems and enhance our
           lives. Whether it's designing intuitive interfaces or architecting
           robust backend systems, I am committed to delivering high-quality
