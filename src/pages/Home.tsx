@@ -3,13 +3,14 @@ import handEmoji from "@/assets/images/EmojiHand.png";
 import { ArrowRight, ChevronsDown } from "lucide-react";
 import TimeLine from "@/components/TimeLine";
 import { motion } from "framer-motion";
-import About from "./About";
 import "react-simple-typewriter/dist/index";
 import { Typewriter, Cursor } from "react-simple-typewriter/dist/index";
-
-import Projects from "./Projects";
-import Experience from "./Experience";
 import { Link } from "react-scroll";
+
+import Contact from "./Contact";
+import Projects from "./Projects";
+import About from "./About";
+import Experience from "./Experience";
 
 const Home = () => {
   const arrowVariants = {
@@ -95,6 +96,7 @@ const Home = () => {
       <About />
       <Projects />
       <Experience />
+      <Contact />
     </div>
   );
 };
