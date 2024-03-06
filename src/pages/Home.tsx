@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import myPicture from "@/assets/images/myPicture.jpg";
 import handEmoji from "@/assets/images/EmojiHand.png";
 import {
@@ -20,14 +22,7 @@ import About from "./About";
 import Skills from "./Skills";
 
 const Home = () => {
-  const arrowVariants = {
-    initial: { y: 0 },
-    animate: {
-      y: [0, -10, 0],
-      transition: { y: { repeat: Infinity, duration: 1.5 } },
-    },
-  };
-
+  const [showArrow, setShowArrow] = useState(true);
   const links = [
     {
       id: 1,
@@ -65,12 +60,55 @@ const Home = () => {
     },
   ];
 
+  const handleScroll = () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollPosition = window.scrollY;
+
+    if (windowHeight + scrollPosition >= documentHeight - 50) {
+      setShowArrow(false);
+    } else {
+      setShowArrow(true);
+    }
+  };
+
+  const arrowVariants = {
+    initial: { y: 0 },
+    animate: {
+      y: [0, -10, 0],
+      transition: { y: { repeat: Infinity, duration: 1.5 } },
+    },
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    // remover o ouvinte de evento ao desmontar o componente
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="h-screen w-full bg-gradient-to-b from-black via-black to-gray-800 text-base">
       <main
         id="main"
         className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full gap-12 px-4 md:flex-row"
       >
+        <motion.div
+          style={{
+            position: "fixed",
+            bottom: "1rem",
+            left: "50%",
+            translateX: "-50%",
+            cursor: "pointer",
+            zIndex: 0,
+            opacity: showArrow ? 0.3 : 0,
+          }}
+          variants={arrowVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <ChevronsDown size={44} color="#ffffff" />
+        </motion.div>
         <div className="flex flex-col justify-center h-full">
           <p className="flex text-white font-bold items-center text-xl sm:text-3xl gap-2 ">
             Hi! <img src={handEmoji} alt="handEmoji" className="max-h-10 " />
@@ -114,9 +152,17 @@ const Home = () => {
               <button className="w-full">Projects</button>
             </Link>
 
-            <button className="group text-white w-2/4 px-6 py-3 my-2 flex items-center justify-center rounded-md bg-gradient-to-r from-cyan-600 to-teal-600">
-              Contact <ArrowRight size={25} className="ml-1" />
-            </button>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              offset={-50}
+              className="text-white w-2/4 px-6 py-3 my-2  rounded-md bg-gradient-to-r from-cyan-600 to-teal-600"
+            >
+              <button className="flex items-center justify-center w-full">
+                Contact <ArrowRight size={25} className="ml-1" />
+              </button>
+            </Link>
           </div>
         </div>
         <div className="hidden md:block">
@@ -126,22 +172,6 @@ const Home = () => {
             className="rounded-2xl mx-auto w-2/3 md:w-96"
           />
         </div>
-        <motion.div
-          style={{
-            position: "fixed",
-            bottom: "1rem",
-            left: "50%",
-            translateX: "-50%",
-            cursor: "pointer",
-            zIndex: 0,
-            opacity: 0.3,
-          }}
-          variants={arrowVariants}
-          initial="initial"
-          animate="animate"
-        >
-          <ChevronsDown size={44} color="#ffffff" />
-        </motion.div>
       </main>
 
       <TimeLine />

@@ -2,6 +2,8 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import emailjs from "@emailjs/browser";
+
 import {
   Form,
   FormControl,
@@ -13,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   name: z.string().nonempty({ message: "Name is required" }),
@@ -24,6 +27,8 @@ const formSchema = z.object({
 });
 
 const Contact = () => {
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,7 +39,35 @@ const Contact = () => {
   });
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(data);
+    const templateParams = {
+      to_name: "Gustavo Eloi",
+      from_name: data.name,
+      from_email: data.email,
+      message: data.message,
+    };
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast({
+          title: "Email successfully sent!",
+          className: "bg-green-500 text-white font-medium border-none",
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Error sending email!",
+          description: "Try again later",
+          className: "bg-red-600 text-white font-medium border-none",
+        });
+      });
   }
 
   return (

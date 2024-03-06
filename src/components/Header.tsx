@@ -4,14 +4,14 @@ import MenuMobile from "./MenuMobile";
 import emojiComputer from "@/assets/images/EmojiComputer.png";
 
 const navLinks = [
-  { id: 3, label: "About", to: "about" },
+  { id: 1, label: "About", to: "about" },
   { id: 2, label: "Projects", to: "projects" },
-  { id: 4, label: "Contact", to: "contact" },
+  { id: 3, label: "Contact", to: "contact" },
 ];
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between w-full text-base py-4 lg:px-10 backdrop-blur-sm border-b border-teal-300 bg-gradient-to-r bg-black from-transparent via-blue-300/20 to-transparent z-50">
+    <header className=" fixed flex items-center justify-between w-full text-base py-4 lg:px-10 backdrop-blur-sm border-b border-teal-300 bg-gradient-to-r bg-black from-transparent via-blue-300/20 to-transparent z-50">
       <div className="flex px-3 items-center">
         <div className="flex items-center justify-center gap-2">
           <img src={emojiComputer} className="w-14 h-14" alt="Emoji Computer" />
