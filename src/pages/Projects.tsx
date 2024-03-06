@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import geprodHome from "@/assets/images/geprod-home.png";
 import sbmProject from "@/assets/images/sbm-project.png";
 import ocebHome from "@/assets/images/oceb-home.png";
+
+import { motion, useAnimation } from "framer-motion";
 
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
@@ -69,23 +72,49 @@ const Projects = () => {
       technologies: [
         {
           id: 1,
-          name: "React",
+          name: "Angular",
         },
         {
           id: 2,
-          name: "Tailwind",
+          name: "Spring",
         },
         {
           id: 3,
-          name: "Firebase",
+          name: "PostgreSQL",
         },
         {
           id: 4,
-          name: "Shadcn/ui",
+          name: "Angular Material",
         },
       ],
     },
   ];
+
+  const controls = useAnimation();
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const projectsSection = document.getElementById("projects");
+
+      if (projectsSection && !hasAnimated) {
+        const sectionTop = projectsSection.offsetTop;
+        const sectionBottom = sectionTop + projectsSection.offsetHeight;
+        const scrollPosition = window.scrollY + window.innerHeight;
+
+        if (scrollPosition > sectionTop && scrollPosition < sectionBottom) {
+          controls.start({ opacity: 1, y: 0 });
+          setHasAnimated(true); // Definir o estado para true após a animação
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [controls, hasAnimated]);
 
   return (
     <div
@@ -100,7 +129,12 @@ const Projects = () => {
           <p className="py-7">Check out some of my work right here</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
+        <motion.div
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={controls}
+          transition={{ duration: 0.6 }}
+        >
           {portfolioProjects.map((project) => (
             <div
               key={project.id}
@@ -108,24 +142,30 @@ const Projects = () => {
             >
               <div className="relative hover:scale-105">
                 <Link to={project.href} target="_blank">
-                  <img
+                  <motion.img
                     src={project.src}
                     alt={project.alt}
                     className="rounded-mg duration-200  hover:filter hover:brightness-75 h-44 w-full object-cover"
+                    whileHover={{ scale: 1.05 }}
                   />
-                  <div className="overlay-icon">
+                  <motion.div className="overlay-icon">
                     <ExternalLink size={30} className="text-white" />
-                  </div>
+                  </motion.div>
                 </Link>
               </div>
 
-              <div className="w-full p-4 flex flex-wrap items-center gap-2">
+              <motion.div
+                className="w-full p-4 flex flex-wrap items-center gap-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 {project.technologies?.map(({ id, name }) => (
                   <Badge key={id} className="bg-teal-600 text-white">
                     {name}
                   </Badge>
                 ))}
-              </div>
+              </motion.div>
 
               <div className="p-4 ">
                 <p className="text-justify text-sm text-gray-300">
@@ -134,7 +174,7 @@ const Projects = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

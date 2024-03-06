@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import myPicture from "@/assets/images/myPicture.jpg";
+import myPicture from "@/assets/images/myPicture.png";
 import handEmoji from "@/assets/images/EmojiHand.png";
 import {
   ArrowRight,
