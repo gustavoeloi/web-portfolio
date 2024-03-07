@@ -46,44 +46,44 @@ const Projects = () => {
         "A SPA (Single Page Application) made for a religious institution to showcase its work and scheduled courses.",
       technologies: [
         {
-          id: 1,
+          id: 5,
           name: "React",
         },
         {
-          id: 2,
+          id: 6,
           name: "Tailwind",
         },
         {
-          id: 3,
+          id: 7,
           name: "Firebase",
         },
         {
-          id: 4,
+          id: 8,
           name: "Shadcn/ui",
         },
       ],
     },
     {
-      id: 2,
+      id: 3,
       src: sbmProject,
       alt: "Screenshot of SBM project",
-      href: "https://www.google.combr/",
+      href: "https://www.google.com.br/",
       description: "A web application developed to control a small business",
       technologies: [
         {
-          id: 1,
+          id: 9,
           name: "Angular",
         },
         {
-          id: 2,
+          id: 10,
           name: "Spring",
         },
         {
-          id: 3,
+          id: 11,
           name: "PostgreSQL",
         },
         {
-          id: 4,
+          id: 12,
           name: "Angular Material",
         },
       ],
